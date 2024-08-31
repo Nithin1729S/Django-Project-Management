@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Projects</h1>
+<p>Hello you are on the {{page}} page</p>
+<table>
+    <tr>
+        <!-- <th>ID</th> -->
+        <th>Projects</th>
+        <th>Positive Votes</th>
+        <th>Ratio</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for project in projects %}
+    <tr>
+        <!-- <td>{{project.id}}</td> -->
+        <td>{{project.title}}</td>
+        <th>{{project.vote_total}}</td>
+        <td>{{project.vote_ratio}}%</td>
+        <td><a href="{% url 'project' project.id %}">View</a></td>
+        <td><a href="{% url 'update-project' project.id %}">Edit</a></td>
+        <td><a href="{% url 'delete-project' project.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if number > 10 %}
+<p>Number is greater than 10</p>
+{% elif number == 10 %}
+<p> Number is exacly 10 </p>
+{% else %}
+<p>Number is less than 10</p>
+{% endif %}
+
+
+
+
+
+
+<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis eaque laboriosam delectus, dignissimos quidem
+    laudantium magnam molestias eius amet ut fugit. Dolores odit, assumenda, distinctio magni sequi explicabo aspernatur
+    laudantium, quae at facere numquam aliquid modi officiis unde sed!</h3>
+{% endblock content %}
